@@ -42,7 +42,7 @@
 
     <main class="w-10/12 mx-auto ">
 
-        <section class="btnSection bg-base-100 p-5 gap-2.5">
+        <section class="btnSection bg-base-100 p-5 gap-2.5 flex ">
             <button id="allButton" onclick="handleButtonClick('allButton')" class="btn bg-[#4A00FF] border border-gray-500 px-12 py-4 font-bold text-white text-[16px]">All</button>
             <button id="openButton" onclick="handleButtonClick('openButton')" class="btn bg-transparent border border-gray-500 px-12 py-4 font-bold text-black text-[16px]">Open</button>
             <button id="closeButton" onclick="handleButtonClick('closeButton')" class="btn bg-transparent border border-gray-500 px-12 py-4 font-bold text-black text-[16px]">Closed</button>
@@ -71,9 +71,63 @@
                 </div>
             </div>
         </section>
+
+        <hr class="bg-gray-700">
+
 <!-- will be dynamic -->
-        <section>
-            
+        <section class="bg-base-200">
+            <div id="cardContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4 gap-3">
+
+
+
+                <!-- <div class="w-96 bg-white rounded-xl shadow-md border-t-4 border-green-500">
+
+                    <div class="p-5">
+
+                        
+                        <div class="flex justify-between items-center mb-3">
+                            <div class="">
+                                <img src="assets/Open-Status.png" alt="">
+                            </div>
+
+                            <span class="px-4 py-1 text-sm font-semibold text-red-500 bg-red-100 rounded-full">
+                                HIGH
+                            </span>
+                        </div>
+
+                       
+                        <h2 class="text-lg font-bold text-gray-800 leading-snug">
+                        Fix Navigation Menu On Mobile Devices
+                        </h2>
+
+                        
+                        <p class="text-gray-500 text-sm mt-2">
+                        The navigation menu doesn't collapse properly on mobile devices...
+                        </p>
+
+                      
+                        <div class="flex gap-3 mt-4">
+                            <span class="px-3 py-1 text-sm font-semibold text-red-500 border border-red-300 rounded-full">
+                                BUG
+                            </span>
+
+                            <span class="px-3 py-1 text-sm font-semibold text-orange-500 border border-orange-300 rounded-full">
+                                HELP WANTED
+                            </span>
+                        </div>
+                    </div>
+
+                       
+                    <div class="border-t px-5 py-3 text-sm text-gray-500">
+                        <p>#1 by john_doe</p>
+                        <p>1/15/2024</p>
+                    </div>
+
+                </div> -->
+
+
+
+            </div>
         </section>
     </main>
 
