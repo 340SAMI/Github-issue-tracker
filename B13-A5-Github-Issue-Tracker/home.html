@@ -1,12 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html >
+<html lang="en" class="bg-base-300">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git solve</title>
     <link rel="shortcut icon" href="assets/Aperture.png" type="image/x-icon">
+
+    <!-- tailwind & daisy -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+
+        }
+    </style>
 </head>
-<body>
-    <h1>weufwehfjkrfgh</h1>
+<body class=" mx-auto">
+    <nav class="p-2 mb-[60px]">
+        <div class="navbar bg-base-100 shadow-sm flex justify-between">
+            <div class="flex items-center gap-2 text-[24px] font-bold">
+                <img class="h-10 w-auto" src="assets/github-logo.png" alt="">
+                <h2>GitHub Issues Tracker</h2>
+            </div>
+
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i>New Issue</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="w-10/12 mx-auto ">
+
+        <section class="btnSection bg-base-100 p-5 gap-2.5">
+            <button id="allButton" onclick="handleButtonClick('allButton')" class="btn bg-[#4A00FF] border border-gray-500 px-12 py-4 font-bold text-white text-[16px]">All</button>
+            <button id="openButton" onclick="handleButtonClick('openButton')" class="btn bg-transparent border border-gray-500 px-12 py-4 font-bold text-black text-[16px]">Open</button>
+            <button id="closeButton" onclick="handleButtonClick('closeButton')" class="btn bg-transparent border border-gray-500 px-12 py-4 font-bold text-black text-[16px]">Closed</button>
+        </section>
+
+        <section class="bg-base-100 mt-4 flex justify-between p-5">
+            <div class="countTitle flex gap-2">
+                <div class="countTitleimg h-13 w-13 p-2 bg-indigo-50 flex justify-center items-center rounded-full">
+                    <img src="assets/Aperture.png" alt="" class="h-10 w-10">
+                </div>
+                <div class="countTitleTexts">
+                    <h2 class="font-bold text-[20px]"><span>50</span> Issues</h2>
+                    <p>Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div class="countStatus flex items-center gap-2">
+                <div class="open flex items-center justify-center gap-1">
+                    <img class="" src="assets/Ellipse 2.png" alt="">
+                    <h3>Open</h3>
+                </div>
+
+                <div class="close flex items-center justify-center gap-1">
+                    <img class="" src="assets/Ellipse 1.png" alt="">
+                    <h3>Closed</h3>
+                </div>
+            </div>
+        </section>
+<!-- will be dynamic -->
+        <section>
+            
+        </section>
+    </main>
+
+    <script src="js/home.js"></script>
 </body>
 </html>
