@@ -2,6 +2,9 @@ const allButton = document.getElementById("allButton");
 const openButton = document.getElementById("openButton");
 const closeButton = document.getElementById("closeButton");
 const cardContainer = document.getElementById("cardContainer");
+let buttonStatus = "allButton"
+let allCards = [];
+
 
 const handleButtonClick = (id) => {
     allButton.classList.remove("bg-[#4A00FF]", "text-white");
@@ -14,25 +17,44 @@ const handleButtonClick = (id) => {
 
     const buttonElement = document.getElementById(id);
 
+    buttonStatus = id;
+
     buttonElement.classList.remove("bg-transparent", "text-black");
     buttonElement.classList.add("bg-[#4A00FF]", "text-white");
+    
+     displaycards(allCards)
 };
 
 async function loadCards(){
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
     const info = await res.json();
 
-    console.log(info.data);
+    // console.log(info.data);
+    
+    allCards = info.data;
 
-    displaycards(info.data)
-
+    displaycards(allCards)
+   console.log(allCards);
 }
 
 
 
 function displaycards(datas){
 
-    datas.forEach(data => {
+    let filterCards = datas
+    
+    cardContainer.innerHTML = "";
+
+    if (buttonStatus==="openButton") {
+        filterCards = datas.filter(data=> data.status==="open")
+        console.log(filterCards)
+        
+    } else if(buttonStatus ==="closeButton") {
+        filterCards = datas.filter(data=> data.status!=="open")
+        console.log(filterCards)
+    }
+
+    filterCards.forEach(data => {
 
         // dynamic data.priority part
         const priorityColors = {
@@ -61,17 +83,18 @@ function displaycards(datas){
   
         };
 
-            const labelstext = data.labels.map(label=>{
+            let labelstext = data.labels.map(label=>{
                
                 const style = labelStyles[label] || "border-gray-500 bg-gray-700"
                 
                 return  `<span class="px-3 py-1 text-sm font-semibold border rounded-full ${style}">${label.toUpperCase()}</span>`
             })
 
-            console.log(labelstext);
+            labelstext = labelstext.join("");
+  
         
         const card = document.createElement("div");
-        card.className = ` w-96 bg-white rounded-xl shadow-md border-t-4 border-green-500 `
+        card.className = `bg-white rounded-xl shadow-md border-t-4 flex flex-col justify-between ${data.status === "open"? "border-green-500" : "border-violet-700" } `
 
         card.innerHTML = ` 
 
@@ -80,7 +103,8 @@ function displaycards(datas){
                         <!-- Top Row -->
                         <div class="flex justify-between items-center mb-3">
                             <div class="">
-                                <img src="assets/Open-Status.png" alt="">
+                                
+                                ${data.status === "open"? `<img src="assets/Open-Status.png" alt="">` : `<img src="assets/Closed- Status .png" alt="">`}
                             </div>
 
                             <span class="px-4 py-1 text-sm font-semibold ${color} rounded-full">
@@ -89,7 +113,7 @@ function displaycards(datas){
                         </div>
 
                         <!-- Title -->
-                        <h2 class="text-lg font-bold text-gray-800 leading-snug">
+                        <h2 class="text-lg font-bold text-gray-800 leading-snug min-h-11">
                         ${data.title}
                         </h2>
 
@@ -117,6 +141,10 @@ function displaycards(datas){
 
         cardContainer.appendChild(card);
     });
+
 }
+
+
+
 
 loadCards()
