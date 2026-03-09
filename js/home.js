@@ -11,8 +11,17 @@ const modalMeta = document.getElementById("modalMeta");
 const modalLabels = document.getElementById("modalLabels");
 const modalAssignee = document.getElementById("modalAssignee");
 const modalPriority = document.getElementById("modalPriority");
+const loadingSpinner = document.getElementById("loadspinner");
 let buttonStatus = "allButton"
 let allCards = [];
+
+function showLoading() {
+    loadingSpinner.classList.remove("hidden");
+     cardContainer.innerHTML = "";
+}
+function hideLoading() {
+    loadingSpinner.classList.add("hidden");
+}
 
 
 const handleButtonClick = (id) => {
@@ -31,19 +40,24 @@ const handleButtonClick = (id) => {
     buttonElement.classList.remove("bg-transparent", "text-black");
     buttonElement.classList.add("bg-[#4A00FF]", "text-white");
     
-     displaycards(allCards)
+    showLoading();
+    displaycards(allCards)
+    hideLoading();
 };
 
 async function loadCards(){
-    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
-    const info = await res.json();
-
-    // console.log(info.data);
+    showLoading();
     
-    allCards = info.data;
+        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+        const info = await res.json();
 
-    displaycards(allCards)
-   console.log(allCards);
+        allCards = info.data;
+
+        displaycards(allCards)
+        console.log(allCards);
+    
+        hideLoading();
+
 }
 
 

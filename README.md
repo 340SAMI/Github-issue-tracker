@@ -1,128 +1,81 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
+# GitHub Issues Tracker
 
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
-
----
-
-# Assignment-05: GitHub Issues Tracker
-
-
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
-
-
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
-
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
-
-
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
-
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
-
+A simple **GitHub Issues Tracker** built with **HTML, TailwindCSS, DaisyUI, and Vanilla JavaScript**.  
+It fetches issues from an API and displays them in cards similar to GitHub Issues.
 
 ---
 
-## 📝 Main Requirements
-
-## 🎨 Design Part
-
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
-
-## Main Page: 
-
-### Navbar: 
-
-- Navbar with website logo/name on the left
-- Search input and button on the right
-
-### Tab Section like Figma: 
-
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
-
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
-
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
---- 
-
-
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
-
-- Load all issues and display as per Figma
-
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
-
-- Each card shows:
-  - Title
-  - Description
-  - Status 
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on an issue  card will open a modal and show all the information about that Issue. 
-
-### 🚀 Challenges
-
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
-    - 1️⃣ What is the difference between var, let, and const?
-    - 2️⃣ What is the spread operator (...)?
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    - 4️⃣ What is an arrow function?
-    - 5️⃣ What are template literals?
-
+## Features
+- Login page with demo credentials
+- Load all issues from API
+- Filter issues by **All / Open / Closed**
+- Responsive card layout (4 columns on large screens)
+- Each card shows **Title, Description, Status, Author, Priority, Labels, Created Date**
+- Clicking a card opens a **modal with full issue details**
+- Search functionality
+- Loading spinner while fetching data
+- Active tab indicator
 
 ---
 
-## 🛠️ Technology Stack
+## API Endpoints
 
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
+**All Issues**:  
+https://phi-lab-server.vercel.app/api/v1/lab/issues
+
+**Single Issue**:  
+https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}  
+Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
+
+**Search Issue**:  
+https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}  
+Example: https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
 
 ---
 
-## 🔑 Demo Credentials
+## Questions & Answers
 
-```text
-Username: admin
-Password: admin123
+**1️⃣ What is the difference between var, let, and const?**
+
+- **var**: Function-scoped, can be redeclared, older syntax.  
+- **let**: Block-scoped, cannot be redeclared in the same block, value can change.  
+- **const**: Block-scoped, cannot be redeclared or reassigned, value is constant.
+
+**2️⃣ What is the spread operator (...)**  
+
+The spread operator expands an array or object into individual elements.  
+Example:
+```javascript
+const arr = [1,2,3];
+const newArr = [...arr,4,5]; // [1,2,3,4,5]
 ```
 
+**3️⃣ Difference between `map()`, `filter()`, and `forEach()`**  
+- `map()` → transforms each element of an array and returns a **new array**.  
+- `filter()` → returns a **new array** containing only elements that meet a condition.  
+- `forEach()` → executes a function on each element, **does not return a new array**.  
 
----
+**4️⃣ Arrow function**  
+- A shorter syntax for writing functions.  
+- Inherits `this` from the surrounding scope.  
+Example:  
+```javascript
+const add = (a, b) => a + b;
+```
 
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
+**5️⃣ What are Template Literals?**  
+Template literals are strings defined with backticks (`` ` ``) that allow embedding variables and expressions using `${}` and support multi-line strings.
 
+- Embed variables or expressions: `${variable}`  
+- Multi-line strings without `\n`  
+- Cleaner string concatenation
 
-## 📤 What to submit
+Example:  
+```javascript
+const name = "Alice";
+const a = 5;
+const b = 10;
 
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
-
-
+console.log(`Hello ${name}, the sum of ${a} + ${b} is ${a + b}`);
+// Output: Hello Alice, the sum of 5 + 10 is 15
+```

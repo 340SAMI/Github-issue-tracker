@@ -133,7 +133,7 @@
         </section>
 
         <!-- Issue Details Modal -->
-        <button class="btn" onclick="issueModal.showModal()">open modal</button>
+        <!-- <button class="btn" onclick="issueModal.showModal()">open modal</button> -->
         <dialog id="issueModal" class="modal">
             <div class="modal-box w-full max-w-2xl">
                 <!-- Title -->
@@ -161,7 +161,7 @@
                 </div>
 
                 <!-- Assignee and Priority -->
-                 
+
                 <div class="grid grid-cols-2 gap-6 mb-6">
                     <!-- Assignee -->
                     <div>
@@ -190,6 +190,13 @@
                 <button>close</button>
             </form>
         </dialog>
+
+        <!-- load spinner -->
+
+        <div id="loadspinner" class="h-[60vh] flex hiden justify-center items-center">
+            <span class="loading loading-spinner loading-xl"></span>
+        </div>
+        
     </main>
 
     <script src="js/home.js"></script>
