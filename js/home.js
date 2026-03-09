@@ -12,6 +12,8 @@ const modalLabels = document.getElementById("modalLabels");
 const modalAssignee = document.getElementById("modalAssignee");
 const modalPriority = document.getElementById("modalPriority");
 const loadingSpinner = document.getElementById("loadspinner");
+const searchBox = document.getElementById("searchBox");
+const searchBtn = document.getElementById("searchBtn");
 let buttonStatus = "allButton"
 let allCards = [];
 
@@ -23,6 +25,17 @@ function hideLoading() {
     loadingSpinner.classList.add("hidden");
 }
 
+async function searchCards(searchText) {
+  const res = await fetch(
+     `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`
+  );
+  const info = await res.json();
+  return info.data;
+}
+searchBtn.addEventListener("click", async () => {
+  const data = await searchCards(searchBox.value);
+  displaycards(data);
+});
 
 const handleButtonClick = (id) => {
     allButton.classList.remove("bg-[#4A00FF]", "text-white");
