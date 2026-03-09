@@ -131,6 +131,65 @@
 
             </div>
         </section>
+
+        <!-- Issue Details Modal -->
+        <button class="btn" onclick="issueModal.showModal()">open modal</button>
+        <dialog id="issueModal" class="modal">
+            <div class="modal-box w-full max-w-2xl">
+                <!-- Title -->
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-3">Title</h2>
+
+                <!-- Status Badge and Meta Info -->
+                <div class="flex items-center gap-2 mb-4">
+                    <span id="modalStatus" class="px-3 py-1 text-sm font-semibold rounded-full">
+                        Open
+                    </span>
+                    <span class="text-gray-500 text-sm">•</span>
+                    <span id="modalMeta" class="text-gray-500 text-sm">Opened by </span>
+                </div>
+
+                <!-- Labels -->
+                <div id="modalLabels" class="flex gap-2 mb-4 flex-wrap">
+                    <!-- Labels  here -->
+                </div>
+
+                <hr class="my-4">
+
+                <!-- Description -->
+                <div class="mb-6">
+                    <p id="modalDescription" class="text-gray-600 leading-relaxed">Issue description </p>
+                </div>
+
+                <!-- Assignee and Priority -->
+                 
+                <div class="grid grid-cols-2 gap-6 mb-6">
+                    <!-- Assignee -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-600 mb-2">Assignee:</h4>
+                        <p id="modalAssignee" class="text-gray-800 font-semibold">Unassigned</p>
+                    </div>
+                    <!-- Priority -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-gray-600 mb-2">Priority:</h4>
+                        <span id="modalPriority" class="">
+                            HIGH
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Modal Actions -->
+                <div class="modal-action justify-end">
+                    <form method="dialog">
+                        <button class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Click backdrop to close -->
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
     </main>
 
     <script src="js/home.js"></script>
